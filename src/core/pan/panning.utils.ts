@@ -71,7 +71,9 @@ export const handleTouchPanningSetup = (
   event: TouchEvent,
 ): void => {
   const { touches } = event;
-  const { positionX, positionY } = contextInstance.transformState;
+  const { positionX, positionY, scale } = contextInstance.transformState;
+
+  if (scale === 1) return;
 
   contextInstance.isPanning = true;
 
